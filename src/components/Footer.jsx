@@ -1,7 +1,11 @@
+import '../styles/Footer.css'
+
 const Footer = () => {
     return (
         <div>
-            Footer
+            <footer>
+                <p>Desarrollado por Carlos Castro &copy;</p>
+            </footer>
         </div>
     );
 }

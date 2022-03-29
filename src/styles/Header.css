@@ -26,8 +26,7 @@ a {
 
 .enlaceTitulo {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    align-items: center;
 }
 
 .Logo {
@@ -40,12 +39,23 @@ a {
     gap: 10px;
 }
 
+.Rigth-Side {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
 .Rigth-Side input {
     padding: 7px;
     border: none;
     font-family: 'Open Sans', sans-serif;
     width: 200px;
 }
+
+.Rigth-Side img {
+    width: 32px;
+    cursor: pointer;
+ } 
 
 .Menu {
     display: none;
@@ -55,16 +65,15 @@ a {
     width: 55px;
 }
 
-@media (max-width: 700px) {
-    .enlaces, .Rigth-Side {
+
+@media (max-width: 750px) {
+    .enlaces, .Rigth-Side input {
         display: none;
     }
 
     .Menu {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        cursor: pointer;
+       display: flex;   
+       cursor: pointer;
     }
     
 }
