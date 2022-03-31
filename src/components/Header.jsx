@@ -6,28 +6,30 @@ import Cart from "../assets/icons/add-to-cart.png";
 
 const Header = () => {
 
-    const [ toggleMobile, setToggleMobile ] = useState(false);
+    const [toggleMobile, setToggleMobile] = useState(false);
 
     return (
-        <nav className="navBar">
-            <div className="Menu" onClick={() => setToggleMobile(!toggleMobile)}>
-                <img src={Menu} alt="Menu Mobile" />
+        <nav>
+            <div className="navBar">
+                <div className="Menu" onClick={() => setToggleMobile(!toggleMobile)}>
+                    <img src={Menu} alt="Menu Mobile" />
+                </div>
+                <div className="Left-Side">
+                    <a href="#" className="enlaceTitulo">
+                        <h1 className="Logo">React-Commerce</h1>
+                    </a>
+                    <div className="enlaces">
+                        <a href="">Inicio</a>
+                        <a href="">Nosotros</a>
+                        <a href="">Productos</a>
+                    </div>
+                </div>
+                <div className="Rigth-Side">
+                        <input type="text" placeholder="Buscar producto" />
+                        <img src={Cart} alt="" />
+                </div>
             </div>
-            <div className="Left-Side">
-                <a href="#" className="enlaceTitulo">
-                    <h1 className="Logo">React-Commerce</h1> 
-                </a>
-               <div className="enlaces">
-                   <a href="">Inicio</a>
-                   <a href="">Nosotros</a>
-                   <a href="">Productos</a>
-               </div>
-            </div>
-            <div className="Rigth-Side">
-                <input type="text" placeholder="Buscar producto" />
-                <img src={Cart} alt="" />
-            </div>
-			{toggleMobile && <MobileMenu/>}
+            {toggleMobile && <MobileMenu />}
         </nav>
     );
 }

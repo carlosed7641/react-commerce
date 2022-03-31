@@ -1,7 +1,9 @@
+import CharacterList from "../containers/CharacterList";
+
 const Body = () => {
     return (
         <div>
-            Body
+            <CharacterList />   
         </div>
     );
 }
