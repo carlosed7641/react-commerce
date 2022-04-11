@@ -1,0 +1,30 @@
+.OrderItem {
+    display: grid;
+	grid-template-columns: auto 1fr auto auto;
+	gap: 16px;
+	margin-bottom: 24px;
+	align-items: center;
+}
+
+.OrderItem p:nth-child(2) {
+    color: rgb(190, 192, 194);
+ }
+
+.OrderItem p:nth-child(3) {
+   font-weight: bold;
+}
+
+figure {
+    margin: 0;
+}
+
+figure img {
+    width: 80px;
+    border-radius: 5px;
+}
+
+.close {
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+}

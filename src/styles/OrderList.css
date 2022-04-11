@@ -1,0 +1,95 @@
+h2 {
+    margin-bottom: 10px;
+}
+
+aside {
+    width: 360px;
+    padding: 24px;
+    box-sizing: border-box;
+    background-color: white;
+    position: absolute;
+    right: -360px;
+    top: 73px;
+    bottom: 0;
+    border: 1px solid rgb(211, 211, 211);
+    position: fixed;
+    transition: 1s ease;
+    animation: swipeLeft 1s ease forwards;
+}
+
+
+@keyframes swipeLeft {
+    100% {
+        transform: translateX(-360px);
+    }
+}
+
+.encabezado {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.encabezado img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transform: rotate(180deg);
+    margin-right: 10px;
+}
+
+
+.ItemOrder {
+    margin-top: 30px;
+}
+
+.total {
+    display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 16px;
+	align-items: center;
+    background-color: rgb(245, 244, 244);
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.total p:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+}
+
+.total p span:nth-child(1) {
+	font-size: medium;
+	font-weight: 400;
+}
+
+.total p:nth-child(2) {
+    text-align: end;
+    font-weight: bold;
+}
+
+
+aside button {
+    padding: 15px;
+    width: 100%;
+    margin: 20px 0;
+    background-color: rgb(179, 226, 179);
+    border: none;
+    border-radius: 5px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16.5px;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+aside button:hover {
+    background-color: green;
+}
+
+@media (max-width: 750px) {
+    aside {
+        width: 100%;
+        top: 95px;
+    }
+}

@@ -2,29 +2,28 @@
     padding: 20px 0;
 }
 
-.CharactertIttem img:nth-child(1) {
+.imageCharacter {
     border-radius: 10px;
     min-width: 305px;
     width: 100%;
 }
 
-.iconAdd {
+
+.toAdd img {
     width: 40px;
     height: 40px;
     cursor: pointer;
-
 }
 
-
 @media (max-width: 750px) {
-    .CharactertIttem img:nth-child(1) {
+    .imageCharacter {
         min-width: 140px;
         width: 100%;
     }
 
-    .iconAdd {
-        width: 30px;
-        height: 30px;
+    .toAdd img {
+        width: 25px;
+        height: 25px;
     }
     
 
@@ -44,7 +43,6 @@
 .character-info p:nth-child(2) {
    margin: 0;
 }
-
 
 
 

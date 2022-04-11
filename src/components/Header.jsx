@@ -3,10 +3,12 @@ import "../styles/Header.css";
 import MobileMenu from '../components/MobileMenu';
 import Menu from "../assets/icons/mobile-menu.png";
 import Cart from "../assets/icons/add-to-cart.png";
+import OrderList from "../containers/OrderList";
 
 const Header = () => {
 
     const [toggleMobile, setToggleMobile] = useState(false);
+    const [toggleOrders, setToggleOrders] = useState(false);
 
     return (
         <nav>
@@ -26,10 +28,14 @@ const Header = () => {
                 </div>
                 <div className="Rigth-Side">
                         <input type="text" placeholder="Buscar producto" />
-                        <img src={Cart} alt="" />
+                        <img src={Cart} alt="" onClick={() => setToggleOrders(!toggleOrders)}/>
                 </div>
             </div>
             {toggleMobile && <MobileMenu />}
+            {toggleOrders && 
+            <OrderList 	
+            toggleOrders={toggleOrders}
+			setToggleOrders={setToggleOrders} />}
         </nav>
     );
 }
