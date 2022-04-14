@@ -2,14 +2,14 @@ import Ref from '../assets/icons/ref.jpeg'
 import Close from '../assets/icons/close.png'
 import '../styles/OrderItem.css'
 
-const OrderItem = () => {
+const OrderItem = ({item}) => {
     return (
         <div className="OrderItem">
             <figure>
-                <img src={Ref} alt="imagen" />
+                <img src={item.image} alt="imagen" />
             </figure>
-            <p>Rick Sánchez</p>
-            <p>$1</p>
+            <p>{item.name}</p>
+            <p>${item.id}</p>
             <img src={Close} alt="close" className='close' />
         </div>       
     );

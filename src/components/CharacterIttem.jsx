@@ -1,14 +1,17 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 import '../styles/CharacterIttem.css';
+import AppContext from '../context/AppContext';
 import toAdd from '../assets/icons/toAdd.jpg';
 import Added from '../assets/icons/added.png';
 
 
-
-
 const CharacterIttem = ({character}) => {
 
-	const [AddtoCart, setAddtoCart] = useState(true);
+	const { state, addToCart } = useContext(AppContext);
+
+	const handleClick = item => {
+		addToCart(item);
+	}
 
     return (
         <div className="CharactertIttem">
@@ -18,11 +21,11 @@ const CharacterIttem = ({character}) => {
 					<p className='price'>${character.id}</p>
 					<p>{character.name}</p>
 				</div>
-				<div className='toAdd' onClick={()=> setAddtoCart(!AddtoCart)}>
+				<div className='toAdd' onClick={()=> handleClick(character)}>
 
-					{
-						AddtoCart ? <img src={toAdd} alt="toAdd" className='allowed'/> : 
-						<img src={Added} alt="Added" />
+					{ state.carrito.includes(character) ?
+						<img src={Added} alt="Added" className='disabled'/> : 
+						<img src={toAdd} alt="toAdd" className='pointer'/>
 					}
 					
 				</div>

@@ -18,9 +18,7 @@ const CharacterList = () => {
         }
 
         fetchData();
-
-    });
-
+    }, [])
 
     return (
         <section className='main-container'>
