@@ -21,9 +21,17 @@ const useInitialState = () => {
         })
     }
 
-    return { //Returnamos el estado y la función de añadir al carrito
+    const removeFromCart = (cosa, indexValue) => {
+        setState({
+            ...state,
+            carrito: state.carrito.filter((item) => item.id !== cosa.id),
+        });
+    }   
+
+    return { //Retornamos el estado y la función de añadir al carrito
         state,
-        addToCart
+        addToCart,
+        removeFromCart
     }
 }
 

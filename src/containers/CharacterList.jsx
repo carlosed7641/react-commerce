@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import CharacterIttem from '../components/CharacterIttem';
 import '../styles/CharacterList.css';
+import axios from 'axios';
 
 const CharacterList = () => {
 
@@ -12,9 +13,9 @@ const CharacterList = () => {
 
         const fetchData = async () => {
 
-            const res = await fetch(API);
-            const data = await res.json();
-            setCharacter(data.results);
+            const res = await axios(API);   
+            setCharacter(res.data.results)
+           
         }
 
         fetchData();

@@ -64,9 +64,26 @@ nav {
     width: 200px;
 }
 
+
+.Rigth-Side div {
+    display: flex;
+    align-items: center;
+}
+
 .Rigth-Side img {
     width: 32px;
     cursor: pointer;
+ } 
+
+ .Rigth-Side p {
+    background-color: red;
+    color: #FFF;
+    padding: 2px;
+    font-size: 12px;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    text-align: center;
  } 
 
 .Menu {

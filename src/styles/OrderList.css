@@ -3,6 +3,7 @@ h2 {
 }
 
 aside {
+    overflow: scroll;
     width: 360px;
     padding: 24px;
     box-sizing: border-box;
