@@ -10,7 +10,7 @@ const CharacterIttem = ({ character }) => {
 	const { state, addToCart } = useContext(AppContext);
 
 	const handleClick = item => {
-		
+
 		addToCart(item);
 
 	}

@@ -5,7 +5,7 @@ h2 {
 aside {
     overflow: scroll;
     width: 360px;
-    padding: 24px;
+    padding: 25px;
     box-sizing: border-box;
     background-color: white;
     right: -360px;
@@ -45,9 +45,9 @@ aside {
 
 .total {
     display: grid;
-	grid-template-columns: auto 1fr;
-	gap: 16px;
-	align-items: center;
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+    align-items: center;
     background-color: rgb(245, 244, 244);
     border-radius: 5px;
     padding: 15px;
@@ -59,8 +59,8 @@ aside {
 }
 
 .total p span:nth-child(1) {
-	font-size: medium;
-	font-weight: 400;
+    font-size: medium;
+    font-weight: 400;
 }
 
 .total p:nth-child(2) {
@@ -87,7 +87,7 @@ aside button:hover {
     background-color: green;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 800px) {
     aside {
         width: 100%;
         top: 95px;

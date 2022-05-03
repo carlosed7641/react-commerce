@@ -11,24 +11,25 @@ const CharacterList = () => {
 
     useEffect(() => {
 
-        const fetchData = async () => {
+        const axiosData = async () => {
 
-            const res = await axios(API);   
+            const res = await axios(API);
             setCharacter(res.data.results)
-           
+
         }
 
-        fetchData();
+        axiosData();
+
     }, [])
 
     return (
-        <section className='main-container'>
-            <div className='grid-characters'>
-                {character.map((character) => (
+        <div className='grid-characters'>
+            {
+                character.map((character) => (
                     <CharacterIttem character={character} key={character.id} />
-                ))}
-            </div>
-        </section>
+                ))
+            }
+        </div>
     );
 }
 

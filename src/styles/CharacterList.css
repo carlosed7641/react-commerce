@@ -1,20 +1,12 @@
-.main-container {
-  
-    margin: 6em auto 3em auto;
-    max-width: 1400px;
-    width: 95%;
-
-}
-
 .grid-characters {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 305px);
+    grid-template-columns: repeat(4, 1fr);
     column-gap: 20px;
 }
 
-@media (max-width: 750px) {
-    .grid-characters {       
-        grid-template-columns: repeat(auto-fill, 140px);   
+@media (max-width: 720px) {
+    .grid-characters {
+        grid-template-columns: repeat(3, 1fr);
         column-gap: 15px;
     }
 }

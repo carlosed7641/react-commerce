@@ -27,6 +27,7 @@ nav {
     display: flex;   
     justify-content: space-between;
     align-items: center;
+    width: 95%;
     max-width: 1200px;
     
 }
@@ -49,6 +50,7 @@ nav {
     display: flex;
     align-items: center;
     gap: 10px;
+    margin-right: 10px;
 }
 
 .Rigth-Side {
@@ -95,7 +97,7 @@ nav {
 }
 
 
-@media (max-width: 750px) {
+@media (max-width: 800px) {
     .enlaces, .Rigth-Side input {
         display: none;
     }

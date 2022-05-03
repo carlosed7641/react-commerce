@@ -36,8 +36,8 @@ const Header = () => {
                         <img src={Cart} alt="" onClick={() => setToggleOrders(!toggleOrders)} />
                         {
                             state.carrito.length > 0 ?
-                            <p>{state.carrito.length}</p>
-                            :null
+                                <p>{state.carrito.length}</p>
+                                : null
                         }
                     </div>
                 </div>

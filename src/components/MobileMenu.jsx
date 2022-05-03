@@ -1,11 +1,11 @@
-import'../styles/MobileMenu.css';
+import '../styles/MobileMenu.css';
 
 const MobileMenu = () => {
     return (
         <div className='mobile-menu'>
-             <ul>
+            <ul>
                 <li>
-                   <p>CATEGORIAS</p>
+                    <p>CATEGORIAS</p>
                 </li>
                 <li>
                     <a href="#">Inicio</a>

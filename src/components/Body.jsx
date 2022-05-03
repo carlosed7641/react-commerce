@@ -1,9 +1,10 @@
 import CharacterList from "../containers/CharacterList";
+import '../styles/Body.css';
 
 const Body = () => {
     return (
-        <div>
-            <CharacterList />   
+        <div className="body">
+            <CharacterList />
         </div>
     );
 }

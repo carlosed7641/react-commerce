@@ -3,11 +3,11 @@ import { useContext } from "react";
 import Close from '../assets/icons/close.png'
 import '../styles/OrderItem.css'
 
-const OrderItem = ({item}) => {
+const OrderItem = ({ item }) => {
 
     const { removeFromCart } = useContext(AppContext);
 
-    const handleRemove =  (cosa) => {
+    const handleRemove = (cosa) => {
         removeFromCart(cosa)
     }
 
@@ -18,8 +18,8 @@ const OrderItem = ({item}) => {
             </figure>
             <p>{item.name}</p>
             <p>${item.id}</p>
-            <img src={Close} alt="close" className='close' onClick={() => handleRemove(item)}/>
-        </div>       
+            <img src={Close} alt="close" className='close' onClick={() => handleRemove(item)} />
+        </div>
     );
 }
 
