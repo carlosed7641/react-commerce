@@ -54,7 +54,7 @@ ul input {
     }
 }
 
-@media (min-width: 750px) {
+@media (min-width: 800px) {
     .mobile-menu {
         display: none;
     }

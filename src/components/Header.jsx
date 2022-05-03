@@ -9,10 +9,9 @@ import AppContext from "../context/AppContext";
 
 const Header = () => {
 
-    const { state } = useContext(AppContext);
+    const { state, setSearch } = useContext(AppContext);
     const [toggleMobile, setToggleMobile] = useState(false);
     const [toggleOrders, setToggleOrders] = useState(false);
-
 
     return (
         <nav>
@@ -31,7 +30,7 @@ const Header = () => {
                     </div>
                 </div>
                 <div className="Rigth-Side">
-                    <input type="text" placeholder="Buscar producto" />
+                    <input type="text" placeholder="Buscar producto" onChange={(e) => setSearch(e.target.value)} />
                     <div>
                         <img src={Cart} alt="" onClick={() => setToggleOrders(!toggleOrders)} />
                         {

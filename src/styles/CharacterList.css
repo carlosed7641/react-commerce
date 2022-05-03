@@ -4,6 +4,11 @@
     column-gap: 20px;
 }
 
+.no-results {
+    text-align: center;
+    margin: 235px 0;
+}
+
 @media (max-width: 720px) {
     .grid-characters {
         grid-template-columns: repeat(3, 1fr);

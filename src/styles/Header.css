@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap');
 
-h1, h2, h3, h4, p {
+h1,
+h2,
+h3,
+h4,
+p {
     font-family: 'Open Sans', sans-serif;
     margin: 0;
 }
@@ -17,19 +21,19 @@ nav {
     position: fixed;
     top: 0;
     width: calc(100% - 40px);
-    -webkit-box-shadow: 2px 0px 18px 3px #B8B8B8; 
+    -webkit-box-shadow: 2px 0px 18px 3px #B8B8B8;
     box-shadow: 2px 0px 18px 3px #B8B8B8;
 }
 
 .navBar {
- 
+
     margin: 0 auto;
-    display: flex;   
+    display: flex;
     justify-content: space-between;
     align-items: center;
     width: 95%;
     max-width: 1200px;
-    
+
 }
 
 .Left-Side {
@@ -75,9 +79,9 @@ nav {
 .Rigth-Side img {
     width: 32px;
     cursor: pointer;
- } 
+}
 
- .Rigth-Side p {
+.Rigth-Side p {
     background-color: red;
     color: #FFF;
     padding: 2px;
@@ -86,26 +90,27 @@ nav {
     width: 15px;
     height: 15px;
     text-align: center;
- } 
+}
 
 .Menu {
     display: none;
 }
 
-.Menu img { 
+.Menu img {
     width: 55px;
 }
 
 
 @media (max-width: 800px) {
-    .enlaces, .Rigth-Side input {
+
+    .enlaces,
+    .Rigth-Side input {
         display: none;
     }
 
     .Menu {
-       display: flex;   
-       cursor: pointer;
+        display: flex;
+        cursor: pointer;
     }
-    
-}
 
+}

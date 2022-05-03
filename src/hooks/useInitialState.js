@@ -12,6 +12,8 @@ const useInitialState = () => {
 
     //Inicializa con la variable de objeto de estado incial
     const [state, setState] = useState(initialState);
+    //Estado global para la busqwueda de productos, inicialmente no tiene nada
+    const [search, setSearch] = useState('')
 
 
     /**Obtener los elementos del carrito desde una base de datos
@@ -84,6 +86,8 @@ const useInitialState = () => {
 
     return { //Retornamos el estado y la función de añadir al carrito
         state,
+        search,
+        setSearch,
         addToCart,
         removeFromCart
     }
