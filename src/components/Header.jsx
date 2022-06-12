@@ -1,10 +1,11 @@
 import { useState, useContext } from "react";
 import "../styles/Header.css";
-import MobileMenu from '../components/MobileMenu';
 import Menu from "../assets/icons/mobile-menu.png";
 import Cart from "../assets/icons/add-to-cart.png";
 import OrderList from "../containers/OrderList";
 import AppContext from "../context/AppContext";
+import MobileMenu from '../components/MobileMenu';
+
 
 
 const Header = () => {

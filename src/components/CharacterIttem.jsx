@@ -7,6 +7,7 @@ import Added from '../assets/icons/added.png';
 
 const CharacterIttem = ({ character }) => {
 
+
 	const { state, addToCart } = useContext(AppContext);
 
 	const handleClick = item => {
@@ -25,7 +26,7 @@ const CharacterIttem = ({ character }) => {
 				</div>
 				<div className='toAdd' onClick={() => handleClick(character)}>
 
-					{state.carrito.includes(character) ?
+					{ state.carrito.some(item => item.id  === character.id) ?
 						<img src={Added} alt="Added" className='disabled' /> :
 						<img src={toAdd} alt="toAdd" className='pointer' />
 					}

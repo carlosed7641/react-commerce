@@ -1,88 +1,95 @@
-import { useState } from "react";
-//import { firebase } from '../firebase';
+import { useState, useEffect } from "react";
+import { firebase } from '../firebase';
 
 
-//Variable de objeto estado inicial, contiene al carrito, inicialmente un arreglo vacío
+//Obtener los elementos del carrito desde una base de datos
 const initialState = {
-    carrito: [],
+    carrito: []
 }
+
+//console.log(initialState.carrito.includes(char))
 
 //Declaro el compontente
 const useInitialState = () => {
 
     //Inicializa con la variable de objeto de estado incial
     const [state, setState] = useState(initialState);
-    //Estado global para la busqwueda de productos, inicialmente no tiene nada
+    //Estado global para la busqueda de productos, inicialmente no tiene nada
     const [search, setSearch] = useState('')
 
 
-    /**Obtener los elementos del carrito desde una base de datos
     useEffect(() => {
-
         const getCart = async () => {
-
             try {
                 const db = firebase.firestore()
                 const data = await db.collection('orden').get()
-    
+
                 const array = data.docs.map(item => (
-
                     {
-                     ...item.data()
+                        ...item.data()
                     }
-
-
                 ))
-                //console.log(array[0])
-                setState(array[0])
 
+                setState(array[0])
             } catch (error) {
                 console.log(error)
             }
         }
-
-        getCart()
+        getCart();
     }, [])
-    **/
 
 
     //Función para añadir al carrito, recibe como argumento el personaje a agregar(cosa)
-    const addToCart = /*async*/ (cosa) => {
+    const addToCart = async (cosa) => {
 
         try {
 
-            /**Conectar la base de datos
-            const db = firebase.firestore();
-            //Objeto de producto contiene los datos para insertarlos en la BD
-            const nuevoProducto = {
-                ...state, //Primero toma todo lo que haya si ya lo hay
-                carrito: state.carrito.includes(cosa) //Aqui valida si el producto que se le dio click ya está en el carrito
-                    ? state.carrito //Si existe queda igual
-                    : [...state.carrito, cosa], //Sino agrega el nuevo producto
+            if (!state.carrito.some(item => item.id === cosa.id)) {
+
+                //Conectar la base de datos
+                const db = firebase.firestore();
+                //Objeto de producto contiene los datos para insertarlos en la BD
+                const nuevoProducto = {
+                    ...state,
+                    carrito: [...state.carrito, cosa]
+                }
+
+                await db.collection('orden').doc('productos').update(nuevoProducto);
+
+                setState(nuevoProducto);
+
             }
-            
-            await db.collection('orden').doc('productos').update(nuevoProducto); **/
 
-            setState({
-                ...state, //Primero toma todo lo que haya si ya lo hay
-                carrito: state.carrito.includes(cosa) //Aqui valida si el producto que se le dio click ya está en el carrito
-                    ? state.carrito //Si existe queda igual
-                    : [...state.carrito, cosa], //Sino agrega el nuevo producto
-
-            });
 
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
 
     }
 
-    const removeFromCart = (cosa) => {
-        setState({
-            ...state,
-            carrito: state.carrito.filter((item) => item.id !== cosa.id),
-        });
+    const removeFromCart = async (cosa) => {
+
+        try {
+
+            //Conectar la base de datos
+            const db = firebase.firestore();
+            //Objeto de producto contiene los datos para insertarlos en la BD
+            const nuevoProducto = {
+                ...state,
+                carrito: state.carrito.filter((item) => item.id !== cosa.id),
+            }
+
+            await db.collection('orden').doc('productos').update(nuevoProducto);
+
+            setState(nuevoProducto);
+
+
+        } catch (error) {
+            console.log(error);
+        }
+
     }
+
 
     return { //Retornamos el estado y la función de añadir al carrito
         state,
