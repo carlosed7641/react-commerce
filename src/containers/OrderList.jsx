@@ -8,11 +8,10 @@ const OrderList = ({ toggleOrders, setToggleOrders }) => {
 
     const { state } = useContext(AppContext);
 
-
     const sumTotal = () => {
 
         const reducer = (acum, currentValue) => acum + currentValue.id;
-        const sum = state.carrito.reduce(reducer, 0);
+        const sum = state.cart.reduce(reducer, 0);
         return sum;
     }
 
@@ -23,7 +22,7 @@ const OrderList = ({ toggleOrders, setToggleOrders }) => {
                 <h3>Mi Orden</h3>
             </div>
             <div className="ItemOrder">
-                {state.carrito.map((item, index) => (
+                {state.cart.map((item, index) => (
                     <OrderItem item={item} key={index} />
                 ))}
             </div>

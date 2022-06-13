@@ -19,8 +19,8 @@ const MobileMenu = () => {
             </ul>
 
             <ul>
-                <p>PRODUCTO QUE DESEA BUSCAR</p>
-                <input type="text" placeholder="Buscar producto" />
+                <p>PERSONAJE QUE DESEA BUSCAR</p>
+                <input type="text" placeholder="Buscar personaje" />
             </ul>
         </div>
     );

@@ -2,64 +2,69 @@ import { useState, useEffect } from "react";
 import { firebase } from '../firebase';
 
 
-//Obtener los elementos del carrito desde una base de datos
+//Declaramos el estado inicial, un objeto con el carrito vacío
 const initialState = {
-    carrito: []
+    cart: []
 }
-
-//console.log(initialState.carrito.includes(char))
 
 //Declaro el compontente
 const useInitialState = () => {
 
-    //Inicializa con la variable de objeto de estado incial
+    //Inicializa con la variable del objeto de estado incial
     const [state, setState] = useState(initialState);
-    //Estado global para la busqueda de productos, inicialmente no tiene nada
+    //Estado para la busqueda de personajes, inicialmente una cadena vacía
     const [search, setSearch] = useState('')
 
-
+    /** Utilizamos el hook de efecto para cargar los datos de firebase. 
+    Solo se ejecutará una sola vez por eso el arreglo de dependencias
+    está vacío. **/
     useEffect(() => {
+        //Función asíncrona que  nos envía los datos al estado
         const getCart = async () => {
             try {
+                //Conexión a la BD
                 const db = firebase.firestore()
                 const data = await db.collection('orden').get()
 
+                //Recorremos el documento y lo guardamos en la variable array
                 const array = data.docs.map(item => (
                     {
                         ...item.data()
                     }
                 ))
-
+                //Enviamos al estado lo que cargamos de firebase
                 setState(array[0])
             } catch (error) {
                 console.log(error)
             }
         }
+        //Llamamos la función
         getCart();
     }, [])
 
 
-    //Función para añadir al carrito, recibe como argumento el personaje a agregar(cosa)
-    const addToCart = async (cosa) => {
+    //Función para añadir al carrito, recibe como argumento el personaje a agregar
+    const addToCart = async (character) => {
 
         try {
+            /**Validamos si el personaje a agregar está o no en el carrito
+            Si está no pasa nada, si no está entra en el condicional **/
+            if (!state.cart.some(item => item.id === character.id)) {
 
-            if (!state.carrito.some(item => item.id === cosa.id)) {
-
-                //Conectar la base de datos
+                //Conexión a la BD
                 const db = firebase.firestore();
-                //Objeto de producto contiene los datos para insertarlos en la BD
-                const nuevoProducto = {
-                    ...state,
-                    carrito: [...state.carrito, cosa]
+
+                /** Objeto del nuevo personaje, obtiene la propiedad (cart), 
+                y todo lo que tenemos en el carrito más el nuevo personaje 
+                para insertarlos en la BD y en el estado **/
+                const nuevoPersonaje = {
+                    cart: [...state.cart, character]
                 }
 
-                await db.collection('orden').doc('productos').update(nuevoProducto);
-
-                setState(nuevoProducto);
-
+                //Actualiza el documento en la BD y envia el objeto al estado
+                await db.collection('orden').doc('productos').update(nuevoPersonaje);
+                setState(nuevoPersonaje);
             }
-
 
         } catch (error) {
             console.log(error);
@@ -67,29 +72,30 @@ const useInitialState = () => {
 
     }
 
-    const removeFromCart = async (cosa) => {
+    const removeFromCart = async (character) => {
 
         try {
 
-            //Conectar la base de datos
+            //Conexión a la BD
             const db = firebase.firestore();
-            //Objeto de producto contiene los datos para insertarlos en la BD
-            const nuevoProducto = {
-                ...state,
-                carrito: state.carrito.filter((item) => item.id !== cosa.id),
+
+            /** Creamos un nuevo objeto, que tendrá la lista de personajes
+            que hay en el carrito a excepción del personaje a eliminar
+            para insertarlos en la BD y en el estado **/
+            const nuevaLista = {
+
+                cart: state.cart.filter((item) => item.id !== character.id),
             }
 
-            await db.collection('orden').doc('productos').update(nuevoProducto);
-
-            setState(nuevoProducto);
-
+            //Actualiza el documento en la BD y envia el objeto al estado
+            await db.collection('orden').doc('productos').update(nuevaLista);
+            setState(nuevaLista);
 
         } catch (error) {
             console.log(error);
         }
 
     }
-
 
     return { //Retornamos el estado y la función de añadir al carrito
         state,

@@ -31,12 +31,12 @@ const Header = () => {
                     </div>
                 </div>
                 <div className="Rigth-Side">
-                    <input type="text" placeholder="Buscar producto" onChange={(e) => setSearch(e.target.value)} />
+                    <input type="text" placeholder="Buscar personaje" onChange={(e) => setSearch(e.target.value)} />
                     <div>
                         <img src={Cart} alt="" onClick={() => setToggleOrders(!toggleOrders)} />
                         {
-                            state.carrito.length > 0 ?
-                                <p>{state.carrito.length}</p>
+                            state.cart.length > 0 ?
+                                <p>{state.cart.length}</p>
                                 : null
                         }
                     </div>

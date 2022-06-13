@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-
+//Función para consumir la API y retonar los personajes
 export const getCharacters = async () => {
 
     const API = 'https://rickandmortyapi.com/api/character';

@@ -8,12 +8,13 @@ import CharacterIttem from '../components/CharacterIttem';
 
 const CharacterList = () => {
 
- 
     //Importo el estado global de la búsqueda
     const { search } = useContext(AppContext);
     const [character, setCharacter] = useState([]);
 
-
+    /** Utilizamos el hook de efecto para traer la lista personajes
+    con ayuda de la función helper retorna una promesa y ese resultado
+    lo enviamos al estado de personajes **/
     useEffect(() => {
         getCharacters()
             .then(chr => {
