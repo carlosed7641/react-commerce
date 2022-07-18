@@ -6,12 +6,12 @@ import 'firebase/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyCUy6JOMHOIvXq9SGHaB_Pgi0Um26pUoQw",
-    authDomain: "react-commerce-88203.firebaseapp.com",
-    projectId: "react-commerce-88203",
-    storageBucket: "react-commerce-88203.appspot.com",
-    messagingSenderId: "1091028585903",
-    appId: "1:1091028585903:web:f3a84de79f473e747af35a"
+    apiKey: "AIzaSyDJmOzu12rGwPj7qM61Lbe4FZIcG-1JMJ0",
+  authDomain: "react-commerce-e98ef.firebaseapp.com",
+  projectId: "react-commerce-e98ef",
+  storageBucket: "react-commerce-e98ef.appspot.com",
+  messagingSenderId: "1042351493823",
+  appId: "1:1042351493823:web:4c67e6c42fca9680406c0a"
 };
 
 // Initialize Firebase
